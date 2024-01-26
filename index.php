@@ -1,3 +1,25 @@
+<?php 
+if (isset($_GET['pass'])){
+    $lunghezza_password = $_GET['pass'];
+    $passwordGenerata = generaPasswordCasuale($lunghezza_password);
+}
+
+function generaPasswordCasuale($lunghezza_password) {
+    $caratteri = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+[]{}|';
+    $lunghezzaCaratteri = strlen($caratteri);
+    $password = '';
+
+    for ($i = 0; $i < $lunghezza_password; $i++) {
+        $indiceCasuale = rand(0, $lunghezzaCaratteri - 1);
+        $password .= $caratteri[$indiceCasuale];
+    }
+
+    return $password;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +40,10 @@
                 </div>
                 <div class="col-2 mt-5" >
                     <button class="btn btn-success">Invia</button>
+                </div>
+                <div class="col-12">
+                    <h4>Ecco la tua password generata</h4>
+                <?php echo $passwordGenerata; ?>
                 </div>
             </div>
         </div>
