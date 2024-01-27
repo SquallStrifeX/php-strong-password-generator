@@ -1,4 +1,8 @@
-<?php include __DIR__.'/partials/functions.php';
+<?php 
+session_start();
+include __DIR__.'/partials/functions.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +27,7 @@
                 </div>
                 <div class="col-12">
                     <h4>Ecco la tua password generata</h4>
-                <?php echo $passwordGenerata; ?>
+                <?php echo $_SESSION['passwordgenerata']; ?>
                 </div>
             </div>
         </div>

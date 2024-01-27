@@ -1,4 +1,5 @@
-<?php 
+
+<?php
 if (isset($_GET['pass'])){
     $lunghezza_password = $_GET['pass'];
     $passwordGenerata = generaPasswordCasuale($lunghezza_password);
@@ -15,5 +16,17 @@ function generaPasswordCasuale($lunghezza_password) {
     }
 
     return $password;
+
+    
 }
-?>
+
+
+
+    $_SESSION['passwordgenerata'] = $passwordGenerata;
+
+    if (isset($_SESSION['passwordgenerata'])) {
+        header('Location: ./partials/password_mostrata.php');
+        exit();
+    }
+
+    ?>
